@@ -1,9 +1,10 @@
 import React from 'react'
+import Counter from './Components/Counter'
 
 function App() {
   return (
-    <div>
-      APP
+    <div className='h-screen w-full flex justify-center items-center bg-zinc-300'>
+      <Counter/>
     </div>
   )
 }
