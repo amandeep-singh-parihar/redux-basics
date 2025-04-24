@@ -1,43 +1,27 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { decreament, increament, reset } from "../redux/slices/CounterSlice";
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment,reset } from '../redux/slices/CounterSlice.jsx';
 
 function Counter() {
-  const count = useSelector((state) => state.counter.value);
-  //useSelector hook for accessing the state
-  const dispatch = useDispatch();
-  //for accessing / using the fucntion use useDispatch hook
+
+    // to use the value from inside the slice we use a hook named useSelector which take callback function as an argument
+    const count = useSelector((state) => state.counter.value );
+
+    // now to use the fucntionality we have to use a hook named useDispatch
+
+    const dispatch = useDispatch();
 
   return (
-    <div>
-      <div className="flex gap-6 bg-white p-3 px-3 rounded-full text-xl font-semibold border-2 border-black">
-        <button
-          className="border-r-2 pr-3 border-black"
-          onClick={() => dispatch(decreament())}
-        >
-          Decrement
-        </button>
-
-        <div>{count}</div>
-
-        <button
-          className="border-l-2 pl-3 border-black"
-          onClick={() => dispatch(increament())}
-        >
-          Increment
-        </button>
-      </div>
-
-      <div className="flex items-center justify-center">
-        <button
-          className="p-1 px-4 bg-blue-500 text-white rounded-full mt-4 text-xl"
-          onClick={() => dispatch(reset())}
-        >
-          Reset
-        </button>
-      </div>
+    <div className='h-screen w-full flex flex-col items-center justify-center'>
+        <div className='w-full flex items-center justify-center gap-4'>
+            <button onClick={()=>dispatch(increment())}>Increament</button>
+            <div>{count}</div>
+            {/* above the value of count will come from the -> counterSlice -> state -> value*/}
+            <button onClick={()=>dispatch(decrement())}>Decrement</button>
+        </div>
+        <button onClick={()=>dispatch(reset())}>Reset</button>
     </div>
-  );
+  )
 }
 
-export default Counter;
+export default Counter

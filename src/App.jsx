@@ -1,10 +1,10 @@
 import React from 'react'
-import Counter from './Components/Counter'
+import Counter from './Components/Counter.jsx'
 
 function App() {
   return (
-    <div className='h-screen w-full flex justify-center items-center bg-zinc-300'>
-      <Counter/>
+    <div>
+      <Counter></Counter>
     </div>
   )
 }
